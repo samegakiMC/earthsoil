@@ -5,83 +5,988 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>บทความ | EARTHSOIL</title>
+    <title>EARTHSOIL | ดินถล่มและดินเสื่อมโทรม</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<div class="reading-progress">
+    <div id="progressBar"></div>
+</div>
+
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+<div class="ambient ambient-3"></div>
+
+
+<!-- NAVBAR -->
+
 <header class="navbar">
 
-    <div class="logo">
+    <a class="logo" href="index.html">
         🌍 EARTH<span>SOIL</span>
-    </div>
+    </a>
 
     <nav>
-        <a href="index.html">หน้าแรก</a>
+        <a href="#home">หน้าแรก</a>
+        <a href="#topics">หัวข้อ</a>
+        <a href="#event">เหตุการณ์</a>
         <a href="article.html">บทความ</a>
     </nav>
 
 </header>
 
-<main class="article-layout">
 
-    <aside class="sidebar">
+<!-- HERO -->
 
-        <h3>สารบัญ</h3>
+<section class="hero" id="home">
 
-        <button onclick="showTopic('landslide')">🌋 ดินถล่ม</button>
-        <button onclick="showTopic('degradation')">🌱 ดินเสื่อมโทรม</button>
-        <button onclick="showTopic('poorsoil')">💧 ดินจืด</button>
-        <button onclick="showTopic('organic')">🍂 ดินขาดอินทรีวัตถุ</button>
-        <button onclick="showTopic('chemical')">☠️ ดินมีพิษทางเคมี</button>
-        <button onclick="showTopic('human')">👨‍🌾 พฤติกรรมมนุษย์</button>
+    <div class="hero-grid">
 
-        <hr>
+        <div class="hero-content">
 
-        <button onclick="showTopic('economy')">💰 เศรษฐกิจ</button>
-        <button onclick="showTopic('environment')">🌳 สิ่งแวดล้อม</button>
-        <button onclick="showTopic('social')">👥 สังคม</button>
+            <div class="live-badge">
+                <span></span>
+                ENVIRONMENT • EARTH • SOIL
+            </div>
 
-        <hr>
+            <h1>
+                ดินถล่ม
+                <br>
+                <span>และดินเสื่อมโทรม</span>
+            </h1>
 
-        <button onclick="showTopic('prevention')">🛡️ การป้องกัน</button>
-        <button onclick="showTopic('recovery')">♻️ การฟื้นฟู</button>
-        <button onclick="showTopic('data')">🔬 ข้อมูลที่จำเป็น</button>
-        <button onclick="showTopic('cycle')">🔄 วงจรปัญหา</button>
+            <p class="hero-text">
+                เรียนรู้ว่าดินถล่มและดินเสื่อมโทรมเกิดขึ้นได้อย่างไร
+                สาเหตุ ผลกระทบ และวิธีดูแลผืนดินให้กลับมาแข็งแรง
+            </p>
 
-        <button class="quiz-side" onclick="showTopic('quiz')">
-            🧠 แบบทดสอบ
-        </button>
+            <div class="hero-buttons">
 
-    </aside>
+                <a href="article.html" class="main-btn">
+                    เริ่มเรียนรู้
+                    <span>→</span>
+                </a>
 
-    <article id="articleContent">
+                <a href="#event" class="outline-btn">
+                    ดูเหตุการณ์จริง
+                    <span>↓</span>
+                </a>
 
-        <div class="article-header">
+            </div>
 
-            <p class="tag">EARTHSOIL KNOWLEDGE</p>
+            <div class="hero-meta">
 
-            <h1>ความรู้เรื่องดิน</h1>
+                <div>
+                    <strong>15+</strong>
+                    <span>หัวข้อความรู้</span>
+                </div>
+
+                <div>
+                    <strong>12</strong>
+                    <span>คำถามทดสอบ</span>
+                </div>
+
+                <div>
+                    <strong>100%</strong>
+                    <span>เรียนรู้ได้ฟรี</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-visual">
+
+            <div class="hero-image">
+
+                <img
+                    src="https://spatialagent.org/Landslide/images/1a.png"
+                    alt="ภาพดินถล่มในพื้นที่ภูเขา"
+                >
+
+                <div class="image-shade"></div>
+
+                <div class="image-label">
+                    <span>●</span>
+                    LANDSLIDE ZONE
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-one">
+
+                <span>🌧️</span>
+
+                <b>
+                    ฝนตกหนัก
+                </b>
+
+                <small>
+                    น้ำเพิ่มแรงดันในดิน
+                </small>
+
+            </div>
+
+
+            <div class="floating-card card-two">
+
+                <span>🌳</span>
+
+                <b>
+                    พืชคลุมดิน
+                </b>
+
+                <small>
+                    ช่วยลดการชะล้าง
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+    <div class="stat">
+
+        <strong data-count="4">
+            0
+        </strong>
+
+        <span>
+            ปัจจัยสำคัญของดินถล่ม
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong data-count="6">
+            0
+        </strong>
+
+        <span>
+            หัวข้อหลักบนหน้าแรก
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong data-count="12">
+            0
+        </strong>
+
+        <span>
+            คำถามในแบบทดสอบ
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong data-count="100">
+            0
+        </strong>
+
+        <span>
+            % ทุกคนช่วยดูแลดินได้
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- TOPICS -->
+
+<section class="section" id="topics">
+
+    <div class="section-title">
+
+        <p class="tag">
+            EXPLORE THE EARTH
+        </p>
+
+        <h2>
+            สำรวจปัญหาที่ซ่อนอยู่ใต้พื้นดิน
+        </h2>
+
+        <p>
+            เลือกหัวข้อเพื่อเข้าสู่บทความแบบละเอียด
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <a href="article.html?topic=landslide" class="topic-card">
+
+            <div class="topic-image landslide-bg">
+                <span>🌋</span>
+            </div>
+
+            <div class="topic-content">
+
+                <span class="topic-number">
+                    01
+                </span>
+
+                <h3>
+                    ดินถล่ม
+                </h3>
+
+                <p>
+                    ทำความเข้าใจกลไก สาเหตุ
+                    ปัจจัยเสี่ยง และสัญญาณเตือน
+                </p>
+
+                <b>
+                    สำรวจหัวข้อนี้ →
+                </b>
+
+            </div>
+
+        </a>
+
+
+        <a href="article.html?topic=degradation" class="topic-card">
+
+            <div class="topic-image soil-bg">
+                <span>🌱</span>
+            </div>
+
+            <div class="topic-content">
+
+                <span class="topic-number">
+                    02
+                </span>
+
+                <h3>
+                    ดินเสื่อมโทรม
+                </h3>
+
+                <p>
+                    เมื่อคุณภาพดินลดลง
+                    และความสามารถในการผลิตอาหารลดลง
+                </p>
+
+                <b>
+                    สำรวจหัวข้อนี้ →
+                </b>
+
+            </div>
+
+        </a>
+
+
+        <a href="article.html?topic=poorsoil" class="topic-card">
+
+            <div class="topic-image water-bg">
+                <span>💧</span>
+            </div>
+
+            <div class="topic-content">
+
+                <span class="topic-number">
+                    03
+                </span>
+
+                <h3>
+                    ดินจืด
+                </h3>
+
+                <p>
+                    ทำไมดินถึงขาดธาตุอาหาร
+                    และฟื้นฟูอย่างไร
+                </p>
+
+                <b>
+                    สำรวจหัวข้อนี้ →
+                </b>
+
+            </div>
+
+        </a>
+
+
+        <a href="article.html?topic=organic" class="topic-card">
+
+            <div class="topic-image organic-bg">
+                <span>🍂</span>
+            </div>
+
+            <div class="topic-content">
+
+                <span class="topic-number">
+                    04
+                </span>
+
+                <h3>
+                    อินทรีวัตถุ
+                </h3>
+
+                <p>
+                    ส่วนสำคัญของดินที่ช่วยรักษา
+                    โครงสร้างและการอุ้มน้ำ
+                </p>
+
+                <b>
+                    สำรวจหัวข้อนี้ →
+                </b>
+
+            </div>
+
+        </a>
+
+
+        <a href="article.html?topic=chemical" class="topic-card">
+
+            <div class="topic-image chemical-bg">
+                <span>🧪</span>
+            </div>
+
+            <div class="topic-content">
+
+                <span class="topic-number">
+                    05
+                </span>
+
+                <h3>
+                    ดินปนเปื้อนสารเคมี
+                </h3>
+
+                <p>
+                    สารปนเปื้อนสะสมในดิน
+                    และส่งผลต่อระบบนิเวศได้อย่างไร
+                </p>
+
+                <b>
+                    สำรวจหัวข้อนี้ →
+                </b>
+
+            </div>
+
+        </a>
+
+
+        <a href="article.html?topic=human" class="topic-card">
+
+            <div class="topic-image human-bg">
+                <span>👨‍🌾</span>
+            </div>
+
+            <div class="topic-content">
+
+                <span class="topic-number">
+                    06
+                </span>
+
+                <h3>
+                    มนุษย์กับดิน
+                </h3>
+
+                <p>
+                    กิจกรรมของมนุษย์สามารถทั้งทำลาย
+                    และฟื้นฟูระบบดินได้
+                </p>
+
+                <b>
+                    สำรวจหัวข้อนี้ →
+                </b>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="process-section">
+
+    <div class="section-title">
+
+        <p class="tag">
+            HOW IT HAPPENS
+        </p>
+
+        <h2>
+            ดินถล่มเกิดขึ้นได้อย่างไร?
+        </h2>
+
+        <p>
+            เมื่อหลายปัจจัยทำงานร่วมกัน
+        </p>
+
+    </div>
+
+
+    <div class="process">
+
+        <div class="process-step">
+
+            <div class="process-icon">
+                🌧️
+            </div>
+
+            <span>
+                01
+            </span>
+
+            <h3>
+                ฝนตกหนัก
+            </h3>
 
             <p>
-                เลือกหัวข้อจากเมนูด้านซ้ายเพื่อศึกษารายละเอียด
+                น้ำซึมเข้าสู่ชั้นดิน
+                และเพิ่มน้ำหนักของมวลดิน
             </p>
 
         </div>
 
-        <div id="contentBox"></div>
 
-    </article>
+        <div class="process-line"></div>
 
-</main>
+
+        <div class="process-step">
+
+            <div class="process-icon">
+                💧
+            </div>
+
+            <span>
+                02
+            </span>
+
+            <h3>
+                แรงต้านลดลง
+            </h3>
+
+            <p>
+                แรงดันน้ำเพิ่มขึ้น
+                ทำให้ดินบางพื้นที่มีเสถียรภาพลดลง
+            </p>
+
+        </div>
+
+
+        <div class="process-line"></div>
+
+
+        <div class="process-step">
+
+            <div class="process-icon">
+                ⛰️
+            </div>
+
+            <span>
+                03
+            </span>
+
+            <h3>
+                เริ่มเคลื่อนตัว
+            </h3>
+
+            <p>
+                แรงโน้มถ่วงเอาชนะแรงต้าน
+                ของมวลดิน
+            </p>
+
+        </div>
+
+
+        <div class="process-line"></div>
+
+
+        <div class="process-step danger">
+
+            <div class="process-icon">
+                🌋
+            </div>
+
+            <span>
+                04
+            </span>
+
+            <h3>
+                เกิดดินถล่ม
+            </h3>
+
+            <p>
+                ดิน หิน และเศษวัสดุ
+                เคลื่อนตัวลงสู่พื้นที่ต่ำ
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WARNING -->
+
+<section class="warning-section">
+
+    <div class="warning-box">
+
+        <div class="warning-icon">
+            ⚠️
+        </div>
+
+        <div>
+
+            <span class="tag">
+                WARNING SIGNS
+            </span>
+
+            <h2>
+                สัญญาณที่ไม่ควรมองข้าม
+            </h2>
+
+            <p>
+                รอยแตกบนพื้นดิน ต้นไม้หรือเสาไฟเอียง
+                น้ำขุ่นผิดปกติ เสียงหินหรือดินเคลื่อนตัว
+                และประตูหน้าต่างที่เริ่มปิดเปิดผิดปกติ
+                อาจเป็นสัญญาณของการเคลื่อนตัว
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENT -->
+
+<section class="event-section" id="event">
+
+    <div class="section-title">
+
+        <p class="tag">
+            REAL WORLD EVENT
+        </p>
+
+        <h2>
+            เหตุการณ์จริงจากเนปาล
+        </h2>
+
+        <p>
+            ตัวอย่างเหตุการณ์ภัยพิบัติที่ช่วยให้เห็นภาพของพลังธรรมชาติ
+        </p>
+
+    </div>
+
+
+    <div class="event-grid">
+
+
+        <div class="event-image">
+
+            <img
+                src="https://scx2.b-cdn.net/gfx/news/hires/2021/earthquakes-and-extrem.jpg"
+                alt="พื้นที่ภูเขาในเนปาล"
+            >
+
+            <div class="event-image-label">
+                NEPAL • HIMALAYAS
+            </div>
+
+        </div>
+
+
+        <div class="event-content">
+
+            <span class="event-date">
+                26–27 AUGUST 2026
+            </span>
+
+            <h2>
+                ภัยพิบัติบริเวณ
+                <span>
+                    เนปาล–ทิเบต
+                </span>
+            </h2>
+
+            <p>
+                หน้านี้ใช้เป็นพื้นที่นำเสนอตัวอย่างเหตุการณ์จริง
+                และเชื่อมโยงให้เห็นความสัมพันธ์ระหว่างภูเขา
+                น้ำ น้ำแข็ง ดินถล่ม และผลกระทบต่อชุมชน
+            </p>
+
+
+            <div class="event-tags">
+
+                <span>
+                    🌊 Flash Flood
+                </span>
+
+                <span>
+                    ⛰️ Landslide
+                </span>
+
+                <span>
+                    🧊 Glacier
+                </span>
+
+                <span>
+                    🌧️ Heavy Rain
+                </span>
+
+            </div>
+
+
+            <a
+                href="article.html?topic=nepal"
+                class="main-btn"
+            >
+                อ่านเหตุการณ์ →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- YOUTUBE -->
+
+    <div class="video-box">
+
+        <div class="video-header">
+
+            <div>
+
+                <span class="tag">
+                    WATCH & LEARN
+                </span>
+
+                <h2>
+                    ดูวิดีโอเหตุการณ์จาก YouTube
+                </h2>
+
+            </div>
+
+            <span class="video-live">
+                YOUTUBE
+            </span>
+
+        </div>
+
+
+        <div
+            class="youtube-card"
+            id="youtubeCard"
+            data-video-id="NdZDPAi3D7k"
+        >
+
+            <img
+                src="https://img.youtube.com/vi/NdZDPAi3D7k/maxresdefault.jpg"
+                alt="ภาพปกวิดีโอ YouTube"
+            >
+
+            <div class="youtube-overlay"></div>
+
+
+            <button
+                class="youtube-play"
+                type="button"
+                aria-label="เล่นวิดีโอ"
+            >
+
+                <span>
+                    ▶
+                </span>
+
+            </button>
+
+
+            <div class="youtube-caption">
+
+                <strong>
+                    Massive Landslide in Nepal
+                </strong>
+
+                <small>
+                    คลิกเพื่อเริ่มดูวิดีโอจาก YouTube
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <p class="video-note">
+            วิดีโอจะโหลดจาก YouTube เมื่อกดปุ่มเล่น
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- IMPACT -->
+
+<section class="impact-section">
+
+    <div class="section-title">
+
+        <p class="tag">
+            CHAIN REACTION
+        </p>
+
+        <h2>
+            ดินเสีย → ปัญหาไม่ได้หยุดอยู่ที่ดิน
+        </h2>
+
+    </div>
+
+
+    <div class="impact-grid">
+
+        <div class="impact-card">
+            <span>🌱</span>
+            <h3>ดิน</h3>
+            <p>
+                สูญเสียหน้าดิน โครงสร้างเสีย
+                และความอุดมสมบูรณ์ลดลง
+            </p>
+        </div>
+
+
+        <div class="impact-card">
+            <span>🌾</span>
+            <h3>อาหาร</h3>
+            <p>
+                ผลผลิตทางการเกษตรอาจลดลง
+                และต้นทุนการผลิตเพิ่มขึ้น
+            </p>
+        </div>
+
+
+        <div class="impact-card">
+            <span>💰</span>
+            <h3>เศรษฐกิจ</h3>
+            <p>
+                เกิดความเสียหายต่อพื้นที่
+                โครงสร้างพื้นฐาน และรายได้
+            </p>
+        </div>
+
+
+        <div class="impact-card">
+            <span>🌊</span>
+            <h3>น้ำ</h3>
+            <p>
+                ตะกอนและสารปนเปื้อน
+                สามารถเข้าสู่แหล่งน้ำ
+            </p>
+        </div>
+
+
+        <div class="impact-card">
+            <span>👥</span>
+            <h3>สังคม</h3>
+            <p>
+                ชุมชนอาจเผชิญความไม่มั่นคง
+                และผลกระทบต่อคุณภาพชีวิต
+            </p>
+        </div>
+
+
+        <div class="impact-card">
+            <span>🌍</span>
+            <h3>สิ่งแวดล้อม</h3>
+            <p>
+                ระบบนิเวศและความหลากหลาย
+                ทางชีวภาพได้รับผลกระทบ
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOLUTION -->
+
+<section class="solution-section">
+
+    <div class="section-title">
+
+        <p class="tag">
+            WHAT CAN WE DO?
+        </p>
+
+        <h2>
+            เราช่วยดินได้อย่างไร?
+        </h2>
+
+    </div>
+
+
+    <div class="solution-grid">
+
+        <div class="solution-card">
+
+            <div>🌳</div>
+
+            <h3>
+                รักษาพืชคลุมดิน
+            </h3>
+
+            <p>
+                ช่วยยึดหน้าดิน
+                และลดการชะล้าง
+            </p>
+
+        </div>
+
+
+        <div class="solution-card">
+
+            <div>♻️</div>
+
+            <h3>
+                เพิ่มอินทรียวัตถุ
+            </h3>
+
+            <p>
+                ใช้เศษพืชหรือปุ๋ยหมัก
+                อย่างเหมาะสม
+            </p>
+
+        </div>
+
+
+        <div class="solution-card">
+
+            <div>💧</div>
+
+            <h3>
+                จัดการน้ำ
+            </h3>
+
+            <p>
+                ลดการไหลบ่า
+                และวางระบบระบายน้ำที่เหมาะสม
+            </p>
+
+        </div>
+
+
+        <div class="solution-card">
+
+            <div>🔬</div>
+
+            <h3>
+                ตรวจวิเคราะห์ดิน
+            </h3>
+
+            <p>
+                รู้ปัญหาก่อนแก้
+                เพื่อเลือกวิธีฟื้นฟูให้ตรงจุด
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section class="quiz-preview">
+
+    <div class="quiz-glow"></div>
+
+    <div>
+
+        <span class="tag">
+            FINAL CHALLENGE
+        </span>
+
+        <h2>
+            คุณรู้เรื่องดินมากแค่ไหน?
+        </h2>
+
+        <p>
+            มีคำถาม 12 ข้อ
+            พร้อมระบบคิดคะแนนและระดับความรู้
+        </p>
+
+    </div>
+
+
+    <a
+        href="article.html?topic=quiz"
+        class="main-btn"
+    >
+        เริ่มทำแบบทดสอบ →
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
-    <p>EARTHSOIL • Soil Knowledge</p>
+
+    <div class="footer-logo">
+        🌍 EARTH<span>SOIL</span>
+    </div>
+
+    <p>
+        เว็บไซต์ให้ความรู้เรื่องดินถล่ม ดินเสื่อมโทรม
+        และการอนุรักษ์ทรัพยากรดิน
+    </p>
+
+    <div class="footer-line"></div>
+
+    <small>
+        สร้างเพื่อการศึกษา • EARTHSOIL
+    </small>
+
 </footer>
 
-<script src="article.js"></script>
+
+<button
+    id="topBtn"
+    class="top-btn"
+    type="button"
+>
+    ↑
+</button>
+
+
 <script src="script.js"></script>
 
 </body>
