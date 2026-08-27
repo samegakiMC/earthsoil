@@ -1,38 +1,121 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Animation ตอนเลื่อนหน้า
-    const cards = document.querySelectorAll(
-        ".topic-card, .impact-card, .cycle-item"
+    /* =========================================
+       SCROLL ANIMATION
+    ========================================= */
+
+    const animatedElements = document.querySelectorAll(
+        ".topic-card, .cycle-item"
     );
 
     const observer = new IntersectionObserver(
-        entries => {
+        (entries) => {
 
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
 
                 if (entry.isIntersecting) {
+
                     entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+
                 }
 
             });
 
         },
         {
-            threshold: 0.15
+            threshold: 0.12
         }
     );
 
-    cards.forEach(card => {
-        observer.observe(card);
+
+    animatedElements.forEach((element) => {
+
+        observer.observe(element);
+
     });
 
 
-    // ถ้าเปิด article.html?topic=...
-    const params = new URLSearchParams(window.location.search);
-    const topic = params.get("topic");
+    /* =========================================
+       ARTICLE URL
+    ========================================= */
 
-    if (topic && typeof showTopic === "function") {
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const topic =
+        params.get("topic");
+
+
+    if (
+        topic &&
+        typeof showTopic === "function"
+    ) {
+
         showTopic(topic);
+
     }
+
+
+    /* =========================================
+       NAVBAR SHADOW
+    ========================================= */
+
+    const navbar =
+        document.querySelector(".navbar");
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (!navbar) return;
+
+
+            if (window.scrollY > 30) {
+
+                navbar.style.boxShadow =
+                    "0 10px 40px rgba(0,0,0,0.25)";
+
+            } else {
+
+                navbar.style.boxShadow = "none";
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       SMOOTH INTERNAL LINKS
+    ========================================= */
+
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach((link) => {
+
+        link.addEventListener(
+            "click",
+            (event) => {
+
+                const target =
+                    document.querySelector(
+                        link.getAttribute("href")
+                    );
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+    });
 
 });
