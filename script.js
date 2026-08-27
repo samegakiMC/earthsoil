@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
     /* =========================
        SCROLL PROGRESS
     ========================= */
@@ -18,18 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
             document.documentElement.clientHeight;
 
         const progress =
-            (scrollTop / height) * 100;
+            height > 0
+                ? (scrollTop / height) * 100
+                : 0;
 
         if (progressBar) {
+
             progressBar.style.width =
-                progress + "%";
+                `${progress}%`;
+
         }
 
     }
 
+    updateProgress();
+
     window.addEventListener(
         "scroll",
-        updateProgress
+        updateProgress,
+        { passive: true }
     );
 
 
@@ -40,26 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const topBtn =
         document.getElementById("topBtn");
 
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (!topBtn) return;
-
-            if (window.scrollY > 500) {
-
-                topBtn.classList.add("show");
-
-            } else {
-
-                topBtn.classList.remove("show");
-
-            }
-
-        }
-    );
-
     if (topBtn) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                topBtn.classList.toggle(
+                    "show",
+                    window.scrollY > 500
+                );
+
+            },
+            { passive: true }
+        );
+
 
         topBtn.addEventListener(
             "click",
@@ -85,24 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
             ".topic-card, .impact-card, .solution-card, .process-step"
         );
 
+
     const revealObserver =
         new IntersectionObserver(
-            entries => {
+            (entries, observer) => {
 
                 entries.forEach(
                     entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        if (!entry.isIntersecting)
+                            return;
 
-                            entry.target.style.opacity =
-                                "1";
+                        entry.target.classList.add(
+                            "reveal-visible"
+                        );
 
-                            entry.target.style.transform =
-                                "translateY(0)";
-
-                        }
+                        observer.unobserve(
+                            entry.target
+                        );
 
                     }
                 );
@@ -117,15 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems.forEach(
         item => {
 
-            item.style.opacity = "0";
+            item.classList.add(
+                "reveal"
+            );
 
-            item.style.transform =
-                "translateY(30px)";
-
-            item.style.transition =
-                "opacity .7s ease, transform .7s ease";
-
-            revealObserver.observe(item);
+            revealObserver.observe(
+                item
+            );
 
         }
     );
@@ -140,16 +139,16 @@ document.addEventListener("DOMContentLoaded", () => {
             "[data-count]"
         );
 
+
     const counterObserver =
         new IntersectionObserver(
-            entries => {
+            (entries, observer) => {
 
                 entries.forEach(
                     entry => {
 
-                        if (
-                            !entry.isIntersecting
-                        ) return;
+                        if (!entry.isIntersecting)
+                            return;
 
                         const counter =
                             entry.target;
@@ -159,134 +158,215 @@ document.addEventListener("DOMContentLoaded", () => {
                                 counter.dataset.count
                             );
 
-                        let current = 0;
+                        const duration =
+                            1200;
 
-                        const duration = 1200;
+                        const start =
+                            performance.now();
 
-                        const stepTime =
-                            duration / target;
 
-                        const timer =
-                            setInterval(
-                                () => {
+                        function tick(now) {
 
-                                    current++;
+                            const progress =
+                                Math.min(
+                                    (now - start) /
+                                    duration,
+                                    1
+                                );
 
-                                    counter.textContent =
-                                        current;
+                            const eased =
+                                1 -
+                                Math.pow(
+                                    1 - progress,
+                                    3
+                                );
 
-                                    if (
-                                        current >= target
-                                    ) {
+                            counter.textContent =
+                                Math.round(
+                                    target * eased
+                                );
 
-                                        clearInterval(
-                                            timer
-                                        );
 
-                                    }
+                            if (progress < 1) {
 
-                                },
-                                stepTime
-                            );
+                                requestAnimationFrame(
+                                    tick
+                                );
 
-                        counterObserver.unobserve(
+                            }
+
+                        }
+
+
+                        requestAnimationFrame(
+                            tick
+                        );
+
+
+                        observer.unobserve(
                             counter
                         );
 
                     }
                 );
 
+            },
+            {
+                threshold: 0.7
             }
         );
 
+
     counters.forEach(
         counter =>
-            counterObserver.observe(counter)
+            counterObserver.observe(
+                counter
+            )
     );
 
 
     /* =========================
-       CARD MOUSE EFFECT
+       CARD TILT
     ========================= */
 
-    const cards =
-        document.querySelectorAll(
-            ".topic-card, .impact-card, .solution-card"
-        );
+    if (
+        window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches
+    ) {
 
-    cards.forEach(card => {
+        document
+            .querySelectorAll(
+                ".topic-card, .impact-card, .solution-card"
+            )
+            .forEach(card => {
 
-        card.addEventListener(
-            "mousemove",
-            event => {
 
-                const rect =
-                    card.getBoundingClientRect();
+                card.addEventListener(
+                    "mousemove",
+                    event => {
 
-                const x =
-                    event.clientX -
-                    rect.left;
+                        const rect =
+                            card.getBoundingClientRect();
 
-                const y =
-                    event.clientY -
-                    rect.top;
 
-                const centerX =
-                    rect.width / 2;
+                        const x =
+                            event.clientX -
+                            rect.left;
 
-                const centerY =
-                    rect.height / 2;
 
-                const rotateX =
-                    ((y - centerY) /
-                        centerY) *
-                    -2;
+                        const y =
+                            event.clientY -
+                            rect.top;
 
-                const rotateY =
-                    ((x - centerX) /
-                        centerX) *
-                    2;
 
-                card.style.transform =
-                    `translateY(-8px)
-                     perspective(700px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)`;
+                        const rotateX =
+                            (
+                                (y -
+                                    rect.height / 2) /
+                                (rect.height / 2)
+                            ) *
+                            -2.5;
 
-            }
-        );
 
-        card.addEventListener(
-            "mouseleave",
-            () => {
+                        const rotateY =
+                            (
+                                (x -
+                                    rect.width / 2) /
+                                (rect.width / 2)
+                            ) *
+                            2.5;
 
-                card.style.transform =
-                    "";
 
-            }
-        );
+                        card.style.transform =
+                            `translateY(-8px)
+                             perspective(900px)
+                             rotateX(${rotateX}deg)
+                             rotateY(${rotateY}deg)`;
 
-    });
+                    }
+                );
+
+
+                card.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        card.style.transform =
+                            "";
+
+                    }
+                );
+
+            });
+
+    }
 
 
     /* =========================
-       ARTICLE URL
+       YOUTUBE
     ========================= */
 
-    const params =
-        new URLSearchParams(
-            window.location.search
+    const youtubeCard =
+        document.getElementById(
+            "youtubeCard"
         );
 
-    const topic =
-        params.get("topic");
 
-    if (
-        topic &&
-        typeof showTopic === "function"
-    ) {
+    if (youtubeCard) {
 
-        showTopic(topic);
+        const videoId =
+            youtubeCard.dataset.videoId;
+
+
+        youtubeCard.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    youtubeCard.classList.contains(
+                        "playing"
+                    )
+                ) return;
+
+
+                const iframe =
+                    document.createElement(
+                        "iframe"
+                    );
+
+
+                iframe.src =
+                    `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+
+                iframe.title =
+                    "YouTube video";
+
+
+                iframe.allow =
+                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+
+                iframe.allowFullscreen =
+                    true;
+
+
+                youtubeCard.innerHTML =
+                    "";
+
+
+                youtubeCard.appendChild(
+                    iframe
+                );
+
+
+                youtubeCard.classList.add(
+                    "playing"
+                );
+
+            }
+        );
 
     }
 
