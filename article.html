@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>บทความ | EARTHSOIL</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🌍 EARTH<span>SOIL</span>
+    </div>
+
+    <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="article.html">บทความ</a>
+    </nav>
+
+</header>
+
+<main class="article-layout">
+
+    <aside class="sidebar">
+
+        <h3>สารบัญ</h3>
+
+        <button onclick="showTopic('landslide')">🌋 ดินถล่ม</button>
+        <button onclick="showTopic('degradation')">🌱 ดินเสื่อมโทรม</button>
+        <button onclick="showTopic('poorsoil')">💧 ดินจืด</button>
+        <button onclick="showTopic('organic')">🍂 ดินขาดอินทรีวัตถุ</button>
+        <button onclick="showTopic('chemical')">☠️ ดินมีพิษทางเคมี</button>
+        <button onclick="showTopic('human')">👨‍🌾 พฤติกรรมมนุษย์</button>
+
+        <hr>
+
+        <button onclick="showTopic('economy')">💰 เศรษฐกิจ</button>
+        <button onclick="showTopic('environment')">🌳 สิ่งแวดล้อม</button>
+        <button onclick="showTopic('social')">👥 สังคม</button>
+
+        <hr>
+
+        <button onclick="showTopic('prevention')">🛡️ การป้องกัน</button>
+        <button onclick="showTopic('recovery')">♻️ การฟื้นฟู</button>
+        <button onclick="showTopic('data')">🔬 ข้อมูลที่จำเป็น</button>
+        <button onclick="showTopic('cycle')">🔄 วงจรปัญหา</button>
+
+        <button class="quiz-side" onclick="showTopic('quiz')">
+            🧠 แบบทดสอบ
+        </button>
+
+    </aside>
+
+    <article id="articleContent">
+
+        <div class="article-header">
+
+            <p class="tag">EARTHSOIL KNOWLEDGE</p>
+
+            <h1>ความรู้เรื่องดิน</h1>
+
+            <p>
+                เลือกหัวข้อจากเมนูด้านซ้ายเพื่อศึกษารายละเอียด
+            </p>
+
+        </div>
+
+        <div id="contentBox"></div>
+
+    </article>
+
+</main>
+
+<footer>
+    <p>EARTHSOIL • Soil Knowledge</p>
+</footer>
+
+<script src="article.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

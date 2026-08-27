@@ -1,0 +1,850 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Prompt", sans-serif;
+    background: #07110d;
+    color: #e9f5ee;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 17, 12, 0.92);
+
+    border-bottom: 1px solid rgba(150, 255, 190, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-family: "Kanit";
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #62d990;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #b9cfc2;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #72e89b;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 620px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 90px 9%;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(70, 190, 105, 0.18),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.tag {
+    color: #63db91;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-family: "Kanit";
+    font-size: clamp(50px, 7vw, 90px);
+    line-height: 1.05;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #6be39a;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: #a9bdb0;
+    font-size: 17px;
+}
+
+.main-btn {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 13px 27px;
+
+    background: #65d88f;
+    color: #07110d;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(91, 224, 139, 0.2);
+}
+
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card {
+    width: 330px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #10271b,
+            #091810
+        );
+
+    border: 1px solid rgba(113, 230, 151, 0.15);
+
+    border-radius: 25px;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.earth {
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero-card h3 {
+    font-family: "Kanit";
+    font-size: 24px;
+}
+
+.hero-card p {
+    color: #9fb3a7;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section,
+.impact-section,
+.cycle-section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-family: "Kanit";
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.section-title p:last-child {
+    color: #91a69a;
+}
+
+
+/* =========================
+   TOPIC CARDS
+========================= */
+
+.topic-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.topic-card {
+    padding: 30px;
+
+    min-height: 260px;
+
+    text-decoration: none;
+
+    color: #e9f5ee;
+
+    background: #0d1d14;
+
+    border: 1px solid rgba(130, 230, 160, 0.08);
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s,
+        border 0.3s,
+        background 0.3s;
+
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.topic-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.topic-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(99, 219, 145, 0.4);
+    background: #10271a;
+}
+
+.topic-card span {
+    font-size: 38px;
+}
+
+.topic-card h3 {
+    font-family: "Kanit";
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.topic-card p {
+    color: #94aa9c;
+}
+
+.topic-card b {
+    display: block;
+    color: #69df96;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   CYCLE
+========================= */
+
+.cycle-section {
+    background: #0a1710;
+}
+
+.cycle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cycle-item {
+    width: 150px;
+    min-height: 160px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: #112419;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(100, 220, 140, 0.08);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: 0.4s;
+}
+
+.cycle-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cycle-item span {
+    font-size: 35px;
+}
+
+.cycle-item strong {
+    color: #62d990;
+}
+
+.cycle-item h3 {
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.arrow {
+    color: #5cd98c;
+    font-size: 28px;
+}
+
+.cycle-note {
+    text-align: center;
+    max-width: 800px;
+    margin: 40px auto 0;
+    color: #8fa398;
+}
+
+
+/* =========================
+   IMPACT
+========================= */
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.impact-card {
+    padding: 35px;
+
+    background: #0d1d14;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+    color: #eaf5ee;
+
+    border: 1px solid rgba(130, 230, 160, 0.08);
+
+    transition: 0.3s;
+}
+
+.impact-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(99, 219, 145, 0.35);
+}
+
+.impact-card span {
+    font-size: 45px;
+}
+
+.impact-card h3 {
+    font-family: "Kanit";
+    font-size: 27px;
+}
+
+.impact-card p {
+    color: #91a69a;
+}
+
+
+/* =========================
+   QUIZ PREVIEW
+========================= */
+
+.quiz-preview {
+    margin: 60px 8%;
+
+    padding: 55px;
+
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            130deg,
+            #122d1e,
+            #0c1b13
+        );
+}
+
+.quiz-preview h2 {
+    font-family: "Kanit";
+    font-size: 35px;
+}
+
+
+/* =========================
+   ARTICLE LAYOUT
+========================= */
+
+.article-layout {
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 50px 5%;
+
+    gap: 60px;
+}
+
+.sidebar {
+    position: sticky;
+
+    top: 100px;
+
+    height: max-content;
+
+    padding: 20px;
+
+    background: #0b1a11;
+
+    border: 1px solid rgba(120, 230, 160, 0.08);
+
+    border-radius: 16px;
+}
+
+.sidebar h3 {
+    font-family: "Kanit";
+    font-size: 23px;
+
+    margin-bottom: 15px;
+}
+
+.sidebar button {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #a8bdb0;
+
+    text-align: left;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    font-family: "Prompt";
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.sidebar button:hover {
+    background: #132a1c;
+    color: #6be49a;
+}
+
+.sidebar hr {
+    border: none;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+
+    margin: 12px 0;
+}
+
+.sidebar .quiz-side {
+    margin-top: 10px;
+
+    background: #65d88f;
+
+    color: #06100b;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   ARTICLE
+========================= */
+
+.article-header {
+    padding: 30px 0 60px;
+}
+
+.article-header h1 {
+    font-family: "Kanit";
+    font-size: 55px;
+    margin: 10px 0;
+}
+
+.article-header p:last-child {
+    color: #91a69a;
+}
+
+.article-main-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+
+    padding-bottom: 30px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.article-icon {
+    width: 90px;
+    height: 90px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 48px;
+
+    border-radius: 20px;
+
+    background: #11271a;
+}
+
+.article-main-title h1 {
+    font-family: "Kanit";
+
+    font-size: 48px;
+
+    line-height: 1.2;
+}
+
+.article-main-title p:last-child {
+    color: #91a69a;
+}
+
+
+/* =========================
+   ARTICLE SECTIONS
+========================= */
+
+.article-section {
+    display: grid;
+
+    grid-template-columns: 60px 1fr;
+
+    gap: 25px;
+
+    padding: 35px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.section-number {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: #12301f;
+
+    color: #63df93;
+
+    font-weight: 600;
+}
+
+.article-section h2 {
+    font-family: "Kanit";
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.article-section p {
+    white-space: pre-line;
+
+    color: #a9bcb0;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-container {
+    background: #0b1b11;
+
+    padding: 30px;
+
+    border-radius: 20px;
+}
+
+.quiz-intro {
+    margin-bottom: 30px;
+}
+
+.quiz-intro h2 {
+    font-family: "Kanit";
+    font-size: 32px;
+}
+
+.question {
+    padding: 25px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.question h3 {
+    font-family: "Kanit";
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.choices {
+    display: grid;
+    gap: 10px;
+}
+
+.choice {
+    padding: 13px 16px;
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    border-radius: 9px;
+
+    background: #102218;
+
+    color: #d8e8de;
+
+    font-family: "Prompt";
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.choice:hover {
+    background: #173522;
+}
+
+.choice.correct {
+    border-color: #63df93;
+    background: rgba(70, 200, 110, 0.15);
+}
+
+.choice.wrong {
+    border-color: #e86d6d;
+    background: rgba(220, 70, 70, 0.12);
+}
+
+.choice:disabled {
+    cursor: default;
+}
+
+.answer-result {
+    margin-top: 12px;
+}
+
+.correct-text {
+    color: #6be39a;
+}
+
+.wrong-text {
+    color: #ef7777;
+}
+
+.score-box {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    background: #10281a;
+}
+
+.score-box h2 {
+    font-family: "Kanit";
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 80px;
+
+    padding: 40px 8%;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+
+    color: #73867a;
+
+    text-align: center;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .topic-grid,
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .topic-grid,
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cycle {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .quiz-preview {
+        margin: 30px 5%;
+        padding: 30px;
+
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-layout {
+        padding: 30px 5%;
+    }
+
+    .article-main-title {
+        align-items: flex-start;
+    }
+
+    .article-main-title h1 {
+        font-size: 35px;
+    }
+
+}
